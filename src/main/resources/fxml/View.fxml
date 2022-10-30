@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane fx:id="EnviarView" hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" vgap="5.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+      <ColumnConstraints halignment="RIGHT" minWidth="10.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+      <ColumnConstraints minWidth="10.0" />
+    <ColumnConstraints minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label fx:id="ServidorLabel" contentDisplay="CENTER" text="Servidor SMTP:" />
+      <Label fx:id="ConexionLabel" contentDisplay="CENTER" text="Usar conexión SSL:" GridPane.rowIndex="1" />
+      <Label fx:id="RemitenteLabel" contentDisplay="CENTER" text="Remitente (From):" GridPane.rowIndex="2" />
+      <Label fx:id="DestinatarioLabel" contentDisplay="CENTER" text="Destinatario (To):" GridPane.rowIndex="3" />
+      <Label fx:id="AsuntoLabel" contentDisplay="CENTER" text="Asunto (Subject):" GridPane.rowIndex="4" />
+      <HBox fx:id="ServidorHBox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.columnSpan="2">
+         <children>
+            <TextField fx:id="NombreTexto" promptText="Nombre o IP del servidor" HBox.hgrow="SOMETIMES" />
+            <TextField fx:id="PuertoNumero" onKeyTyped="#puertoNumeroAdd" prefWidth="60.0" promptText="Puerto" />
+         </children>
+      </HBox>
+      <CheckBox fx:id="sslCheckBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="EmailREMTexto" promptText="Email del remitente" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <PasswordField fx:id="ContrasenaTexto" promptText="Contraseña" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <TextField fx:id="EmailDESTexto" promptText="Email del destinatario" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+      <TextField fx:id="AsuntoTexto" promptText="Asunto del mensaje" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <TextArea fx:id="MensajeTextArea" prefHeight="200.0" prefWidth="200.0" promptText="Mensaje" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
+      <VBox fx:id="BotonesVBox" spacing="5.0" GridPane.columnIndex="3" GridPane.rowSpan="5">
+         <children>
+            <Button fx:id="EnviarBoton" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnEnviarAction" text="Enviar" />
+            <Button fx:id="VaciarBoton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnVaciarAction" text="Vaciar" />
+            <Button fx:id="CerrarBoton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnCerrarAction" text="Cerrar" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</GridPane>
